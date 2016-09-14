@@ -22,10 +22,7 @@ Route::get('/home', 'HomeController@index');
         Route::group(['middleware' => 'role'], function(){
             
             Route::resource('/beheer', 'RoleController');
-            
-            Route::resource('/tag', 'TagController');
 
-            Route::resource('/csv', 'CsvController');
-
+            Route::resource('/questions', 'questionController');
 
         });
