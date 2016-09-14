@@ -17,7 +17,6 @@ class ToolboxQuestions extends Migration
             $table->string('question');
             $table->string('description');
             $table->integer('chapter_id');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

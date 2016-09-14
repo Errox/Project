@@ -15,7 +15,6 @@ class ToolboxChapters extends Migration
         Schema::create('toolbox_chapters', function (Blueprint $table) {
             $table->increments('id');
             $table->string('chapter');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
