@@ -1,3 +1,13 @@
+<?php         
+        $user = \Auth::user();
+        $info =  DB::table('users')
+           ->where('id', '=', $user->id)
+             ->get(); 
+         foreach ($info as $result){
+          $role = $result->role;
+             } 
+            ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +58,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <?php if ($role != 0){?>
                     <li><a href="{{ url('/beheer') }}">Beheer</a></li>
+                    <?php } ?>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
