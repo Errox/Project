@@ -71,7 +71,6 @@
             ?>          
 
             <?php if ($role != 0){?>
-                    <li><a href="{{ url('/beheer') }}">Beheer</a></li>
                     <?php } ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -79,6 +78,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/beheer') }}"><i class="fa fa-btn fa-sign-out"></i>Beheer</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
