@@ -17,7 +17,7 @@
                         <tbody>
                             @foreach($questions as $question)
                                 <tr>
-                                    <td>{{$question->toolbox_chapter->chapter}}</td>
+                                    <td>{{$question->Toolbox_chapter->chapter}}</td>
                                     <td>{{$question->question}}</td>
                                     <td>{{$question->description}}</td>
                                 </tr>

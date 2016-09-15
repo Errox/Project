@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Toolbox_question extends Model
+class toolbox_question extends Model
 {
-	public function Toolbox_chapters(){
-   		return $this->hasOne('App\Toolbox_chapters');
+	public function toolbox_chapter(){
+   		return $this->belongsTo('App\toolbox_chapter');
 	}
 }

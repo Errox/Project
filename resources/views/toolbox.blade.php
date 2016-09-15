@@ -8,22 +8,22 @@
                 <div class="panel-heading">Toolbox</div>
 
                 <div class="panel-body">
-                    <?php foreach ($toolbox_chapters as $chapters){ ?>
+                  <?php foreach ($toolbox_chapters as $chapters){ ?>
 
-                <h2><?=$chapters->chapter?></h2>
-                    <form method='POST' name="toolboxform" action='/toolbox'>
-                    {!! csrf_field() !!}
-                     <?php foreach ($toolbox_questions as $questions){
-                            if ($chapters->id == $questions->chapter_id){?>
-                             <label><?=$questions->question?>:</label>
-                             <input type='text' name='<?=$questions->question?>'<?=$disable?>>
-                             <br>
-                  <?php  }
-                   
-                    }
-                        echo "<input type='submit' value='verzenden'>";
-                        echo "</form>";
-                    }?>
+                  <h2><?=$chapters->chapter?></h2>
+                      <form method='POST' name="toolboxform" action='/toolbox'>
+                      {!! csrf_field() !!}
+                       <?php foreach ($toolbox_questions as $questions){
+                              if ($chapters->id == $questions->toolbox_chapter_id){?>
+                               <label><?=$questions->question?>:</label>
+                               <input type='text' name='<?=$questions->question?>'<?=$disable?>>
+                               <br>
+                    <?php  }
+                     
+                      }
+                          echo "<input type='submit' value='verzenden'>";
+                          echo "</form>";
+                      }?>
                 </div>
             </div>
         </div>
