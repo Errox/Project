@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ToolboxQuestions extends Migration
+class ToolboxSettings extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class ToolboxQuestions extends Migration
      */
     public function up()
     {
-        Schema::create('toolbox_questions', function (Blueprint $table) {
+        Schema::create('toolbox_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('question');
-            $table->string('description');
-            $table->integer('toolbox_chapter_id');
-            $table->integer('toolbox_settings_id');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class ToolboxQuestions extends Migration
      */
     public function down()
     {
-        Schema::drop('toolbox_questions');
+        //
     }
 }
