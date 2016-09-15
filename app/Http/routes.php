@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index');
             
             Route::resource('/beheer', 'RoleController');
 
-            Route::resource('/questions', 'questionController');
+            Route::resource('/questions', 'QuestionController');
 
 
         });

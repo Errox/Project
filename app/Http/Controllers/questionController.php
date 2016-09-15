@@ -10,7 +10,7 @@ use App\Toolbox_question;
 
 use App\Toolbox_chapter;
 
-class questionController extends Controller
+class QuestionController extends Controller
 {
     public function index(){
     	$questions = Toolbox_question::all();
