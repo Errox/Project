@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/toolbox', 'ToolboxController');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -24,5 +26,6 @@ Route::get('/home', 'HomeController@index');
             Route::resource('/beheer', 'RoleController');
 
             Route::resource('/questions', 'questionController');
+
 
         });

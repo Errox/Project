@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class toolbox_chapter extends Model
+class Toolbox_chapter extends Model
 {
-    public function toolbox_question(){
-    	return $this->hasMany('App\toolbox_question');
+    public function Toolbox_question(){
+    	return $this->hasMany('App\Toolbox_question');
     }
 }
