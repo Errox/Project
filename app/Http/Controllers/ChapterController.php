@@ -10,22 +10,44 @@ use App\Toolbox_chapter;
 
 class ChapterController extends Controller
 {
-    public function index(){
-      $chapters = Toolbox_chapter::all();
-
-      return view('chapters', compact('chapters'));
-    }
-
-    public function create(){
-      return view('questionscreate');
-    }
-
     public function store(request $request){
-      $chapter = new Toolbox_chapter;
+      if(\Auth::user()->role >= '1'){
+        $chapter = new Toolbox_chapter;
 
-      $chapter->chapter = $request->chapter;
-      $chapter->save();
+        $chapter->chapter = $request->chapter;
+        $chapter->save();
+
+      }
+      return redirect()->back();
+    }
+
+    public function show($id){
+      if(\Auth::user()->role >= '1'){
+        $chapter = Toolbox_chapter::find($id);
+        $chapter->delete();
+      }
 
       return redirect()->back();
+    }
+
+    public function edit($id){
+      if(\Auth::user()->role >= '1'){
+          $chapter = Toolbox_chapter::find($id);
+          $chapters = Toolbox_chapter::all();
+
+          return view('toolbox/chapterEdit', compact('chapter', 'chapters'));
+      }
+    }
+
+    public function update(request $request){
+      if(\Auth::user()->role >= '1'){
+          $chapter = Toolbox_chapter::find($request->id);
+
+          $chapter->chapter = $request->chapter;
+
+          $chapter->save();
+
+          return redirect()->back();
+      }
     }
 }

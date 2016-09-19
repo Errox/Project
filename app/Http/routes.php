@@ -15,18 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/toolbox', 'ToolboxController');
+Route::resource('/toolbox', 'ToolboxController', ['only' => [
+    'index', 'post'
+]]);
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
         Route::group(['middleware' => 'role'], function(){
-
             Route::resource('/beheer', 'RoleController');
 
-            Route::resource('/questions', 'QuestionController');
+			
+			Route::get('/toolbox/editor', 'ToolboxController@editor');
 
-            Route::resource('/chapters', 'ChapterController');
 
+			Route::resource('/chapter', 'ChapterController', ['only' => [
+			    'show', 'post', 'update', 'edit'
+			]]);
+			Route::resource('/question', 'QuestionController', ['only' => [
+			    'show', 'post', 'update', 'edit'
+			]]);
         });

@@ -9,8 +9,7 @@
                 <div class="panel-body col-md-6">
                 </div>
                 <div class="panel-body col-md-6">
-                  <a href="/questions" class="list-group-item"><span class="glyphicon glyphicon-triangle-right"></span>Questions</a>
-                  <a href="/chapters" class="list-group-item"><span class="glyphicon glyphicon-triangle-right"></span>Chapters</a>
+                  <a href="/toolbox/editor" class="list-group-item"><span class="glyphicon glyphicon-triangle-right"></span>Toolbox editor</a>
                 </div>
             </div>
         </div>
