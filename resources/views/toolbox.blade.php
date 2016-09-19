@@ -8,11 +8,12 @@
                 <div class="panel-heading">Toolbox</div>
                 <div class="panel-body">
                   @foreach($toolbox_chapters as $chapters)
-                    <h2 style="text-align:center;">{{$chapters->chapter}}</h2>
                     <form method='POST' name="toolboxform" action='/toolbox'>
                       {!! csrf_field() !!}
                       @foreach ($toolbox_questions as $question)
                         @if($chapters->id == $question->toolbox_chapter_id)
+                        <h2 style="text-align:center;">{{$chapters->chapter}}</h2>
+                        <?php $check = true; ?>
                           <div class="row">
                             <div class="span4 collapse-group">
                               <p><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></p>
@@ -25,8 +26,11 @@
                         @endif
                      
                       @endforeach
+                      @if($check == true)
                       <input type='submit' value='verzenden'>
+                      @endif
                     </form>
+                    <?php $check = false; ?>
                   @endforeach
                 </div>
             </div>
