@@ -31,7 +31,9 @@ class ToolboxController extends Controller
     }
 
     public function store(Request $request){
-    	dd($request);
+    	echo "We zijn hier nog niet mee begonnen want er is nog geen trello punt voor.";
+    	echo "Zodra we er een trello punt voor hebben zullen we er hard mee aan de slag gaan";
+    	echo "<img src='http://img10.deviantart.net/5107/i/2006/250/2/8/code_monkey_by_gloriouskyle.jpg' />";
 
     }
 }
