@@ -20,12 +20,13 @@ Route::resource('/toolbox', 'ToolboxController');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-        
+
         Route::group(['middleware' => 'role'], function(){
-            
+
             Route::resource('/beheer', 'RoleController');
 
             Route::resource('/questions', 'QuestionController');
 
+            Route::resource('/chapters', 'ChapterController');
 
         });
