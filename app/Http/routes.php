@@ -29,6 +29,7 @@ Route::get('/home', 'HomeController@index');
 			
 			Route::get('/toolbox/editor', 'ToolboxController@editor');
 
+			Route::resource('/settings' , 'ToolboxSettings');
 
 			Route::resource('/chapter', 'ChapterController', ['only' => [
 			    'show', 'post', 'update', 'edit', 'store'
