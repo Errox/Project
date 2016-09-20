@@ -85,8 +85,6 @@
                         @endif
                     </div>
                 </div>
-                <div class="chapter">
-                    <div>
                     <label class="col-md-4 control-label">Hoofdstuk</label>
                         <div class="col-md-6">
                             <select class="form-control" name="chapter" id="chapter">
@@ -96,21 +94,16 @@
                             </select>
                             <br>
                         </div>
-                    </div>
-                </div>
-                <div class="toolbox_setting">
-                    <div>
+
                     <label class="col-md-4 control-label">Type</label>
                         <div class="col-md-6">
                             <select class="form-control" name="toolbox_setting" id="toolbox_setting">
                                 @foreach($toolbox_settings as $toolbox_setting)
-                                    <option id="<?=$toolbox_setting->id?>" value="<?= $toolbox_setting->id?>"> <?=$toolbox_setting->type?> </option><br>
+                                    <option id="<?=$toolbox_setting->id?>" value="<?= $toolbox_setting->id?>"> <?=$toolbox_setting->type?> </option>
                                 @endforeach
                             </select>
                             <br>
                         </div>
-                    </div>
-                </div>                
                 <div class="form-group">
                     <div class="col-md-offset-5">
                         <button type="submit" class="btn btn-primary">

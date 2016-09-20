@@ -12,7 +12,6 @@ Use App\Toolbox_chapter;
 
 Use App\Toolbox_question;
 
-Use App\Toolbox_setting;
 
 class ToolboxController extends Controller
 {
@@ -22,11 +21,11 @@ class ToolboxController extends Controller
     	}else{
     		$disable = "";
     	}
-    	$toolbox_settings = Toolbox_setting::all();
+
     	$toolbox_chapters = Toolbox_chapter::where('active', '=', '1')->get();
     	$toolbox_questions = Toolbox_question::where('active', '=', '1')->get();
 
-    	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions', 'toolbox_settings'));
+    	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions'));
     }
 
     public function store(Request $request){
@@ -40,6 +39,6 @@ class ToolboxController extends Controller
         $questions = Toolbox_question::where('active', '=', '1')->get();
         $chapters = Toolbox_chapter::where('active', '=', '1')->get();
 
-        return view('toolbox/toolboxEditor', compact('questions', 'chapters'));   
+        return view('toolbox/toolboxEditor', compact('questions', 'chapters', 'toolbox_settings'));   
     }
 }
