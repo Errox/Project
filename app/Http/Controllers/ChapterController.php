@@ -24,7 +24,10 @@ class ChapterController extends Controller
     public function show($id){
       if(\Auth::user()->role >= '1'){
         $chapter = Toolbox_chapter::find($id);
-        $chapter->delete();
+        
+        $chapter->active = '0';
+
+        $chapter->save();
       }
 
       return redirect()->back();
@@ -33,7 +36,7 @@ class ChapterController extends Controller
     public function edit($id){
       if(\Auth::user()->role >= '1'){
           $chapter = Toolbox_chapter::find($id);
-          $chapters = Toolbox_chapter::all();
+          $chapters = Toolbox_chapter::where('active', '=', '1')->get();
 
           return view('toolbox/chapterEdit', compact('chapter', 'chapters'));
       }

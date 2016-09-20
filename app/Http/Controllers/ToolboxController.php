@@ -21,8 +21,8 @@ class ToolboxController extends Controller
     		$disable = "";
     	}
 
-    	$toolbox_chapters = Toolbox_chapter::all();
-    	$toolbox_questions = Toolbox_question::all();
+    	$toolbox_chapters = Toolbox_chapter::where('active', '=', '1')->get();
+    	$toolbox_questions = Toolbox_question::where('active', '=', '1')->get();
 
     	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions'));
     }
@@ -35,8 +35,8 @@ class ToolboxController extends Controller
     }
 
     public function editor(){
-        $questions = Toolbox_question::all();
-        $chapters = Toolbox_chapter::all();
+        $questions = Toolbox_question::where('active', '=', '1')->get();
+        $chapters = Toolbox_chapter::where('active', '=', '1')->get();
 
         return view('toolbox/toolboxEditor', compact('questions', 'chapters'));   
     }

@@ -28,7 +28,10 @@ class QuestionController extends Controller
     public function show($id){
       if(\Auth::user()->role >= '1'){
         $question = Toolbox_question::find($id);
-        $question->delete();
+
+        $question->active = '0'; 
+
+        $question->save();
       }
       return redirect()->back();
     }
