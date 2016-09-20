@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<?php $heading = true; ?>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -12,7 +13,10 @@
                       {!! csrf_field() !!}
                       @foreach ($toolbox_questions as $question)
                         @if($chapters->id == $question->toolbox_chapter_id)
+                        @if($heading == true)
                         <h2 style="text-align:center;">{{$chapters->chapter}}</h2>
+                        <?php $heading = false; ?>
+                        @endif
                         <?php $check = true; ?>
                           <div class="row">
                             <div class="span4 collapse-group">
@@ -31,6 +35,7 @@
                       @endif
                     </form>
                     <?php $check = false; ?>
+                    <?php $heading = true; ?>
                   @endforeach
                 </div>
             </div>

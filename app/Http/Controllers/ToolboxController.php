@@ -12,6 +12,8 @@ Use App\Toolbox_chapter;
 
 Use App\Toolbox_question;
 
+Use App\Toolbox_setting;
+
 
 class ToolboxController extends Controller
 {
@@ -38,7 +40,7 @@ class ToolboxController extends Controller
     public function editor(){
         $questions = Toolbox_question::where('active', '=', '1')->get();
         $chapters = Toolbox_chapter::where('active', '=', '1')->get();
-
+        $toolbox_settings = Toolbox_setting::all();
         return view('toolbox/toolboxEditor', compact('questions', 'chapters', 'toolbox_settings'));   
     }
 }
