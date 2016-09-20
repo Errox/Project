@@ -44,11 +44,11 @@ class QuestionController extends Controller
 
     public function update(request $request){
         if(\Auth::user()->role >= '1'){
-            $question = Toolbox_question::find($id);
+            $question = Toolbox_question::find($request->id);
 
             $question->question = $request->question;
             $question->description = $request->description;
-            $question->toolbox_chapter_id = $request->toolboc_chapter_id;
+            $question->toolbox_chapter_id = $request->toolbox_chapter_id;
 
             $question->save();
 
