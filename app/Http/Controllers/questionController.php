@@ -36,9 +36,8 @@ class QuestionController extends Controller
     public function edit($id){
         if(\Auth::user()->role >= '1'){
             $question = Toolbox_question::find($id);
-            $questions = Toolbox_question::all();
-            $chapters = Toolbox_chapter::all();
-
+            $questions = Toolbox_question::where('active', '=', '1')->get();
+            $chapters = Toolbox_chapter::where('active', '=', '1')->get();
             return view('toolbox/questionEdit', compact('question', 'questions', 'chapters'));
         }
     }
