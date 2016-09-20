@@ -12,6 +12,8 @@ Use App\Toolbox_chapter;
 
 Use App\Toolbox_question;
 
+Use App\Toolbox_setting;
+
 class ToolboxController extends Controller
 {
     Public function index(){
@@ -20,11 +22,11 @@ class ToolboxController extends Controller
     	}else{
     		$disable = "";
     	}
-
+    	$toolbox_settings = Toolbox_setting::all();
     	$toolbox_chapters = Toolbox_chapter::where('active', '=', '1')->get();
     	$toolbox_questions = Toolbox_question::where('active', '=', '1')->get();
 
-    	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions'));
+    	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions', 'toolbox_settings'));
     }
 
     public function store(Request $request){
