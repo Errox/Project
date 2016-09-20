@@ -19,7 +19,7 @@
                                     <input type="hidden" name="_method" value="PUT">
                                     <input type="hidden" name="id" value="{{$question->id}}">
                                     <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
-                                        <label class="col-md-4 control-label">Beschrijving</label>
+                                        <label class="col-md-4 control-label">Vraag</label>
                                         <div class="col-md-6">
                                             <input required type="text" class="form-control" name="question" value="{{$question->question}}">
                                             @if ($errors->has('question'))
@@ -69,6 +69,7 @@
                         </tbody>
                     </table>
                 </div>
+                <p style="text-align:center;"><a class="btn btn-primary" href="/toolbox/editor">Terug</a></p>
             </div>
             <div class="col-md-12">
                 <div class="panel panel-default">

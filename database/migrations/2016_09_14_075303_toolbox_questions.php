@@ -18,6 +18,7 @@ class ToolboxQuestions extends Migration
             $table->string('description');
             $table->integer('toolbox_chapter_id');
             $table->integer('toolbox_settings_id');
+            $table->integer('active')->default('1');
             $table->timestamps();
         });
     }

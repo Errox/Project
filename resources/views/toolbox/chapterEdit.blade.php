@@ -43,6 +43,7 @@
                         </tbody>
                     </table>
                 </div>
+                <p style="text-align:center;"><a class="btn btn-primary" href="/toolbox/editor">Terug</a></p>
             </div>
             <div class="col-md-12">
                 <div class="panel panel-default">

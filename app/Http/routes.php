@@ -31,9 +31,9 @@ Route::get('/home', 'HomeController@index');
 
 
 			Route::resource('/chapter', 'ChapterController', ['only' => [
-			    'show', 'post', 'update', 'edit'
+			    'show', 'post', 'update', 'edit', 'store'
 			]]);
 			Route::resource('/question', 'QuestionController', ['only' => [
-			    'show', 'post', 'update', 'edit'
+			    'show', 'post', 'update', 'edit', 'store'
 			]]);
         });
