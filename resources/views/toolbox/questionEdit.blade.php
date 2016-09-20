@@ -87,7 +87,7 @@
                           <tbody>
                             @foreach($questions as $question)
                                 <tr>
-                                    <td>{{'toolbox chapter invullen. '}}</td>
+                                    <td>{{$question->Toolbox_chapter->chapter}}</td>
                                     <td>{{$question->question}}</td>
                                     <td>{{$question->description}}</td>
                                     <td><a href="/question/{{$question->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a href="/question/{{$question->id}}"<i class="fa fa-times" aria-hidden="true"></i></a></td>
