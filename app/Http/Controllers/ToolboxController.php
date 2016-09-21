@@ -26,8 +26,9 @@ class ToolboxController extends Controller
 
     	$toolbox_chapters = Toolbox_chapter::where('active', '=', '1')->get();
     	$toolbox_questions = Toolbox_question::where('active', '=', '1')->get();
+    	$toolbox_settings = Toolbox_setting::all();
 
-    	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions'));
+    	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions', 'toolbox_settings'));
     }
 
     public function store(Request $request){
