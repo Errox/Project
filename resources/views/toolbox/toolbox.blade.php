@@ -9,25 +9,29 @@
                 <div class="panel-heading">Toolbox</div>
                 <div class="panel-body">
                   @foreach($toolbox_chapters as $chapters)
-                    <form method='POST' name="toolboxform" action='/toolbox'>
+                    <form method='POST' name="toolboxform" action=''>
                       {!! csrf_field() !!}
                       @foreach ($toolbox_questions as $question)
                         @if($chapters->id == $question->toolbox_chapter_id)
-                        @if($heading == true)
-                        <h2 style="text-align:center;">{{$chapters->chapter}}</h2>
-                        <?php $heading = false; ?>
-                        @endif
-                        <?php $check = true; ?>
-                          <div class="row">
-                            <div class="span4 collapse-group">
-                              <p><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></p>
-                              <label class="control-label">{{$question->question}}:</label>
-                               <p class="collapse well">{{$question->description}}</p>
+                          @if($heading == true)
+                          <h2 style="text-align:center;">{{$chapters->chapter}}</h2>
+                          <?php $heading = false; ?>
+                          @endif
+                          <?php $check = true; ?>
+                            <div class="row">
+                              <div class="span4 collapse-group">
+                                <p><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></p>
+                                <label class="control-label">{{$question->question}}:</label>
+                                 <p class="collapse well">{{$question->description}}</p>
+                              </div>
                             </div>
-                          </div>
-                          <br><br>
-                          <textarea class="form-control" rows="2" type='text' name='{{$question->question}}'<?=$disable?>></textarea>
-                        @endif
+                            <br><br>
+                            @if($question->toolbox_setting->type == 'Textarea')
+                              <textarea class="form-control" rows="2" name='{{$question->question}}'<?=$disable?>></textarea>
+                            @elseif($question->toolbox_setting->type == 'Text')
+                              <input type="text" class="form-control" rows="2" name='{{$question->question}}'<?=$disable?> />
+                            @endif
+                          @endif
                      
                       @endforeach
                       @if($check == true)

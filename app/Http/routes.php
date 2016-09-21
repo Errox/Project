@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/toolbox', 'ToolboxController', ['only' => [
-    'index', 'post'
+    'index', 'post', 'store'
 ]]);
 
 Route::auth();
