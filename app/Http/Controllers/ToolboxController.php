@@ -27,7 +27,7 @@ class ToolboxController extends Controller
     	$toolbox_chapters = Toolbox_chapter::where('active', '=', '1')->get();
     	$toolbox_questions = Toolbox_question::where('active', '=', '1')->get();
     	$toolbox_settings = Toolbox_setting::all();
-        dd($toolbox_questions['0']->toolbox_setting->type);
+        
     	return view('toolbox/toolbox')->with(compact('disable', 'toolbox_chapters', 'toolbox_questions', 'toolbox_settings'));
     }
 
@@ -42,6 +42,7 @@ class ToolboxController extends Controller
         $questions = Toolbox_question::where('active', '=', '1')->get();
         $chapters = Toolbox_chapter::where('active', '=', '1')->get();
         $toolbox_settings = Toolbox_setting::all();
+
         return view('toolbox/toolboxEditor', compact('questions', 'chapters', 'toolbox_settings'));   
     }
 }

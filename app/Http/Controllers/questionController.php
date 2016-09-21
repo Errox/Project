@@ -12,6 +12,8 @@ use App\Toolbox_chapter;
 
 Use App\Toolbox_setting;
 
+Use App\Lib\FormBuilder;
+
 class QuestionController extends Controller
 {
     public function store(request $request){
@@ -20,9 +22,9 @@ class QuestionController extends Controller
         	$question->question = $request->question;
         	$question->description = $request->description;
         	$question->toolbox_chapter_id = $request->chapter;
-            $question->toolbox_settings_id = $request->toolbox_setting;
-
+            $question->toolbox_setting_id = $request->toolbox_setting;
         	$question->save();
+            //$form = FormBuilder.BuildField();
         }
     	return redirect()->back();
     }
