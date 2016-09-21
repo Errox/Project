@@ -16,6 +16,6 @@ class ToolboxSettings extends Controller
     public function index(){
     	$questions = toolbox_question::all();
 
-    	dd($questions['0']->toolbox_question);
+    	dd($questions['0']->toolbox_setting);
     }
 }

@@ -35,6 +35,7 @@
                           <tr>
                               <th> Hoofdstuk </th>
                               <th> Vraag </th>
+                              <th> settings </th>
                               <th colspan="2"> Beschrijving </th>
                           </tr>
                       </thead>
@@ -43,6 +44,7 @@
                             <tr>
                                 <td>{{$question->Toolbox_chapter->chapter}}</td>
                                 <td>{{$question->question}}</td>
+                                <td>{{$question->toolbox_setting->type}}</td>
                                 <td>{{$question->description}}</td>
                                 <td><a href="/question/{{$question->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a href="/question/{{$question->id}}"<i class="fa fa-times" aria-hidden="true"></i></a></td>
                             </tr>
