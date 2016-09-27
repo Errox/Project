@@ -22,12 +22,12 @@
                               <div class="span4 collapse-group">
                                 <p><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></p>
                                 <label class="control-label">{{$question->question}}:</label>
-                                 <p class="collapse well">{{$question->description}}</p>
+                                 <p class="collapse well tb_desc">{{$question->description}}</p>
                               </div>
                             </div>
                             <br><br>
                             @if($question->toolbox_setting->type == 'Textarea')
-                              <textarea class="form-control" rows="2" name='{{$question->question}}'<?=$disable?>></textarea>
+                              <textarea class="well tb_txt" rows="2" name='{{$question->question}}'<?=$disable?>></textarea>
                             @elseif($question->toolbox_setting->type == 'Text')
                               <input type="text" class="form-control" rows="2" name='{{$question->question}}'<?=$disable?> />
                             @endif

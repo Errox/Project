@@ -27,6 +27,14 @@ body.inverse .card .form-control {
   background: #FFFFFF;
 }
 
+.tb_txt{
+  width : 100%;
+}
+
+.tb_desc{
+  background : rgb(33, 150, 243) none repeat scroll 0% 0%;
+}
+
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
