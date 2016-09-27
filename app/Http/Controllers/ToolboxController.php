@@ -24,7 +24,7 @@ class ToolboxController extends Controller
     		$disable = "";
     	}
 
-    	$toolbox_chapters = Toolbox_chapter::where('active', '=', '1')->get();
+    	$toolbox_chapters = Toolbox_chapter::where('active', '=', '1')->paginate(1);
     	$toolbox_questions = Toolbox_question::where('active', '=', '1')->get();
     	$toolbox_settings = Toolbox_setting::all();
         

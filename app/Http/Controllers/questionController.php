@@ -18,15 +18,15 @@ class QuestionController extends Controller
 {
     public function store(request $request){
         if(\Auth::user()->role >= '1'){
-        	$question = new Toolbox_question;
-        	$question->question = $request->question;
-        	$question->description = $request->description;
-        	$question->toolbox_chapter_id = $request->chapter;
+            $question = new Toolbox_question;
+            $question->question = $request->question;
+            $question->description = $request->description;
+            $question->toolbox_chapter_id = $request->chapter;
             $question->toolbox_setting_id = $request->toolbox_setting;
-        	$question->save();
+            $question->save();
             //$form = FormBuilder.BuildField();
         }
-    	return redirect()->back();
+        return redirect()->back();
     }
 
     public function show($id){

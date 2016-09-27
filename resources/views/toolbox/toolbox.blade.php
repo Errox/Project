@@ -41,6 +41,9 @@
                     <?php $check = false; ?>
                     <?php $heading = true; ?>
                   @endforeach
+                  <div style="text-align:center">
+                    {{ $toolbox_chapters->links() }}
+                  </div>
                 </div>
             </div>
         </div>
