@@ -15,7 +15,7 @@ class ToolboxQuestions extends Migration
         Schema::create('toolbox_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('question');
-            $table->string('description');
+            $table->longtext('description');
             $table->integer('toolbox_chapter_id');
             $table->integer('toolbox_setting_id');
             $table->integer('active')->default('1');

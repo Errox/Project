@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<script>tinymce.init({ selector:'textarea' });</script>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -19,30 +20,28 @@
                                     <input type="hidden" name="_method" value="PUT">
                                     <input type="hidden" name="id" value="{{$question->id}}">
                                     <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
-                                        <label class="col-md-4 control-label">Vraag</label>
-                                        <div class="col-md-6">
+                                        <label>Vraag</label>
                                             <input required type="text" class="form-control" name="question" value="{{$question->question}}">
                                             @if ($errors->has('question'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('question') }}</strong>
                                                 </span>
                                             @endif
-                                        </div>
                                     </div>
                                         <br>
                                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                                            <label class="col-md-4 control-label">Beschrijving</label>
-                                            <div class="col-md-6">
+                                            <label>Beschrijving</label>
                                                 <textarea required type="text" class="form-control" name="description">{{$question->description}}</textarea>
                                                     @if ($errors->has('description'))
                                                         <span class="help-block">
                                                             <strong>{{ $errors->first('description') }}</strong>
                                                         </span>
                                                     @endif
-                                            </div>
                                         </div>
                                     </td>
                                     <td>
+                                    <br>
+                                    <br>
                                         <div class="chapter">
                                             <div>
                                             <label class="col-md-4 control-label">Hoofdstuk</label>

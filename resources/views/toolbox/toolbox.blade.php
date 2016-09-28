@@ -15,6 +15,7 @@
                         @if($chapters->id == $question->toolbox_chapter_id)
                           @if($heading == true)
                           <h2 style="text-align:center;">{{$chapters->chapter}}</h2>
+                          <h4 style="text-align:center;">{!!$chapters->description!!}</h4>
                           <?php $heading = false; ?>
                           @endif
                           <?php $check = true; ?>
@@ -22,7 +23,9 @@
                               <div class="span4 collapse-group">
                                 <p><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></p>
                                 <label class="control-label">{{$question->question}}:</label>
-                                 <p class="collapse well tb_desc">{{$question->description}}</p>
+                                <div class="collapse well tb_desc">
+                                 <p>{!!$question->description!!}</p>
+                                </div>
                               </div>
                             </div>
                             <br><br>

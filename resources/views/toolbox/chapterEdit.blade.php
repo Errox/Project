@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<script>tinymce.init({ selector:'textarea' });</script>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -19,7 +20,7 @@
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="id" value="{{$chapter->id}}">
                                 <td><div class="form-group{{ $errors->has('chapter') ? ' has-error' : '' }}">
-                                    <label class="col-md-4 control-label">Beschrijving</label>
+                                    <label class="col-md-4 control-label">Titel</label>
                                     <div class="col-md-6">
                                         <input required type="text" class="form-control" name="chapter" value="{{$chapter->chapter}}">
                                         @if ($errors->has('chapter'))
@@ -28,6 +29,16 @@
                                             </span>
                                         @endif
                                     </div>
+                                </div>
+                                <br>
+                                <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                                    <label>Beschrijving</label>
+                                    <textarea required type="text" class="form-control" name="description">{{$chapter->description}}</textarea>
+                                        @if ($errors->has('description'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('description') }}</strong>
+                                            </span>
+                                        @endif
                                 </div></td>
                                 <td>
                                     <div class="form-group">

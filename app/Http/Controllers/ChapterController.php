@@ -15,6 +15,9 @@ class ChapterController extends Controller
         $chapter = new Toolbox_chapter;
 
         $chapter->chapter = $request->chapter;
+        
+        $chapter->description = $request->description;
+
         $chapter->save();
 
       }
@@ -47,6 +50,8 @@ class ChapterController extends Controller
           $chapter = Toolbox_chapter::find($request->id);
 
           $chapter->chapter = $request->chapter;
+
+          $chapter->description = $request->description;
 
           $chapter->save();
 
