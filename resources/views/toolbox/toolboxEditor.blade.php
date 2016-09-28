@@ -3,9 +3,9 @@
 <script>tinymce.init({ selector:'textarea' });</script>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Alle Hoofdstukken</div>
+                <div class="panel-heading">Alles</div>
                 <div class="panel-body">
                   <a id="opener2" style="float:right;">Nieuw hoofstuk <i class="fa fa-plus" aria-hidden="true"></i></a>
                     <table class="table">
@@ -15,15 +15,27 @@
                               <th colspan='2'> Beschrijving </th>
                           </tr>
                       </thead>
-                      <tbody>
+                      
                         @foreach($chapters as $chapter)
+                        <tbody class="collapse-group">
                             <tr>
                                 <td>{{$chapter->chapter}}</td>
                                 <td>{{$chapter->description}}</td>
                                 <td><a href="/chapter/{{$chapter->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a href="/chapter/{{$chapter->id}}"<i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                <td><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></td>
+                             <tbody class="collapse">  
+                           @foreach($questions as $question)
+                           @if($chapter->id == $question->toolbox_chapter_id)     
+                                <tr><td><span class="tb_question">{{$question->question}}</span></td>
+                                <td class="col-md-2"><a href="/question/{{$question->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a href="/question/{{$question->id}}"<i class="fa fa-times" aria-hidden="true"></i></a></td> 
+                                </tr>
+                                @endif
+                            @endforeach
+                            </tbody>
                             </tr>
+                            </tbody>
                         @endforeach
-                        </tbody>
+                        
                     </table>
                 </div>
             </div>
@@ -194,5 +206,29 @@
       $( "#dialog2" ).dialog( "open" );
     });
   } );
+
+function h(e) {
+  $(e).css({'height':'auto','overflow-y':'hidden'}).height(e.scrollHeight);
+}
+$('textarea').each(function () {
+  h(this);
+}).on('input', function () {
+  h(this);
+});
+
+
+$('.row .btn').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $collapse = ($this).closest('.collapse-group').find('.collapse');
+    console.log($collapse);
+    $collapse.collapse('toggle');
+})
+;
+
+$("btn").click(function(){
+    $collapse = $this.closest('.collapse');
+    $($collapse).toggle();
+});
 </script>
 @endsection

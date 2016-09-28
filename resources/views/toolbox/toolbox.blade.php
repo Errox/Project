@@ -8,6 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Toolbox</div>
                 <div class="panel-body">
+                <div class="col-md-8">
                   @foreach($toolbox_chapters as $chapters)
                     <form method='POST' name="toolboxform" action=''>
                       {!! csrf_field() !!}
@@ -48,9 +49,19 @@
                     {{ $toolbox_chapters->links() }}
                   </div>
                 </div>
+     <div style="float:right;" class="col-md-2">
+     <?php $loops = 1 ?>
+      @foreach($side_chapters as $chapter)
+     <a href="?page=<?=$loops?>"> {{$loops}}. &nbsp;
+      {{$chapter->chapter}}</a><br
+      <?php $loops += 1; ?>>
+      @endforeach
+      </div> 
             </div>
         </div>
+        </div>
     </div>
+
 </div>
 <script>
 function h(e) {

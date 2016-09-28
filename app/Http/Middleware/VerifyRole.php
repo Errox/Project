@@ -17,6 +17,7 @@ class VerifyRole
      */
     public function handle($request, Closure $next)
     {
+        if (!\Auth::guest()){
         $user = \Auth::user();
 
         $user = User::find($user->id);
@@ -28,6 +29,10 @@ class VerifyRole
         }
         else{
             return $next($request);
+        }
+        }
+        else{
+            return redirect('/login');
         }
     }
 }
