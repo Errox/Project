@@ -21,6 +21,7 @@ class QuestionController extends Controller
             $question = new Toolbox_question;
             $question->question = $request->question;
             $question->description = $request->description;
+            $question->tips = $request->tips;
             $question->toolbox_chapter_id = $request->chapter;
             $question->toolbox_setting_id = $request->toolbox_setting;
             $question->save();
@@ -55,6 +56,7 @@ class QuestionController extends Controller
 
             $question->question = $request->question;
             $question->description = $request->description;
+            $question->description = $request->tips;
             $question->toolbox_chapter_id = $request->toolbox_chapter_id;
 
             $question->save();

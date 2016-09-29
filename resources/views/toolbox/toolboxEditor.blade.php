@@ -80,30 +80,44 @@
             <div>
                 <h3 style="text-align: center;">Vraag gegevens</h3>
                 {!! csrf_field() !!}
-                <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
-                    <label class="col-md-4 control-label">Titel</label>
-                        <div class="col-md-6">
-                        <input required type="text" class="form-control" name="question" value="{{ old('question') }}">
-                            @if ($errors->has('question'))
+                <div class="col-md-8">
+                    <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
+                        <label class="col-md-1 control-label">Titel</label>
+                            <div class="col-md-12">
+                            <input required type="text" class="form-control" name="question" value="{{ old('question') }}">
+                                @if ($errors->has('question'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('question') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                    </div>
+                    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                        <label class="col-md-1 control-label">Beschrijving</label>
+                        <div class="col-md-12">
+                            <textarea required type="text" class="form-control" name="description" value="{{ old('description') }}"></textarea>
+                            @if ($errors->has('description'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('question') }}</strong>
+                                    <strong>{{ $errors->first('description') }}</strong>
                                 </span>
                             @endif
                         </div>
-                </div>
-                <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                    <label class="col-md-4 control-label">Beschrijving</label>
-                    <div class="col-md-6">
-                        <textarea required type="text" class="form-control" name="description" value="{{ old('description') }}"></textarea>
-                        @if ($errors->has('description'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('description') }}</strong>
-                            </span>
-                        @endif
+                    </div>
+                    <div class="form-group{{ $errors->has('tips') ? ' has-error' : '' }}">
+                        <label class="col-md-1 control-label">Tips & tricks</label>
+                        <div class="col-md-12">
+                            <textarea required type="text" class="form-control" name="tips" value="{{ old('tips') }}"></textarea>
+                            @if ($errors->has('tips'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('tips') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-4">
                     <label class="col-md-4 control-label">Hoofdstuk</label>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <select class="form-control" name="chapter" id="chapter">
                                 @foreach($chapters as $chapter)
                                     <option id="<?=$chapter->id?>" value="<?= $chapter->id?>"> <?=$chapter->chapter?> </option><br>
@@ -121,11 +135,12 @@
                             </select>
                             <br>
                         </div>
-                <div class="form-group">
-                    <div class="col-md-offset-5">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-btn fa-floppy-o"></i>Opslaan
-                        </button>
+                    <div class="form-group">
+                        <div class="col-md-offset-5">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-btn fa-floppy-o"></i>Opslaan
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -173,7 +188,7 @@
 <script>
  $( function() {
     $( "#dialog" ).dialog({
-      width:('70%'),
+      width:('80%'),
       autoOpen: false,
       show: {
         effect: "blind",
@@ -190,7 +205,7 @@
     });
 
     $( "#dialog2" ).dialog({
-      width:('70%'),
+      width:('80%'),
       autoOpen: false,
       show: {
         effect: "blind",

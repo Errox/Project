@@ -38,6 +38,15 @@
                                                         </span>
                                                     @endif
                                         </div>
+                                        <div class="form-group{{ $errors->has('tips') ? ' has-error' : '' }}">
+                                            <label>Tips & Tricks</label>
+                                                <textarea required type="text" class="form-control" name="tips">{{$question->tips}}</textarea>
+                                                    @if ($errors->has('tips'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('tips') }}</strong>
+                                                        </span>
+                                                    @endif
+                                        </div>
                                     </td>
                                     <td>
                                     <br>

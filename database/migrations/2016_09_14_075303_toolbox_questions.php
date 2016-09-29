@@ -16,6 +16,7 @@ class ToolboxQuestions extends Migration
             $table->increments('id');
             $table->string('question');
             $table->longtext('description');
+            $table->longtext('tip');
             $table->integer('toolbox_chapter_id');
             $table->integer('toolbox_setting_id');
             $table->integer('active')->default('1');

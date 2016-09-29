@@ -23,9 +23,13 @@
                             <div class="row">
                               <div class="span4 collapse-group">
                                 <p><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></p>
+                                <p><a style="float:right;" class="btn" id="tip" href="#">Tips & Tricks &raquo;</a></p>
                                 <label class="control-label">{{$question->question}}:</label>
                                 <div class="collapse well tb_desc">
-                                 <p>{!!$question->description!!}</p>
+                                  <p>{!!$question->description!!}</p>
+                                </div>
+                                <div class="collapse collapsetip well tb_desc">
+                                  <p>{!!$question->tips!!}</p>
                                 </div>
                               </div>
                             </div>
@@ -73,6 +77,12 @@ $('textarea').each(function () {
   h(this);
 });
 
+$('#tip').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $collapse = $this.closest('.collapse-group').find('.collapsetip');
+    $collapse.collapse('toggle');
+});
 
 $('.row .btn').on('click', function(e) {
     e.preventDefault();
@@ -80,5 +90,6 @@ $('.row .btn').on('click', function(e) {
     var $collapse = $this.closest('.collapse-group').find('.collapse');
     $collapse.collapse('toggle');
 });
+
 </script>
 @endsection
