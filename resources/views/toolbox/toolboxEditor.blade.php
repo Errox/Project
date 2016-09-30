@@ -15,25 +15,29 @@
                               <th colspan='2'> Beschrijving </th>
                           </tr>
                       </thead>
-                      
+                      <?php $loop = 1; ?>
                         @foreach($chapters as $chapter)
                         <tbody class="collapse-group">
                             <tr>
                                 <td>{{$chapter->chapter}}</td>
                                 <td>{{$chapter->description}}</td>
                                 <td><a href="/chapter/{{$chapter->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a href="/chapter/{{$chapter->id}}"<i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                <td><a style="float:right;" class="btn" href="#">Lees meer &raquo;</a></td>
-                             <tbody class="collapse">  
+                                <td><a style="float:right;" class="btn" href="#" name="question<?=$loop?>" id="button<?=$loop;?>" onclick="uitklap(this)">Lees meer &raquo;</a></td>
+                             <tbody id="question<?=$loop?>" class="collapse">  
+
+                             
                            @foreach($questions as $question)
                            @if($chapter->id == $question->toolbox_chapter_id)     
                                 <tr><td><span class="tb_question">{{$question->question}}</span></td>
                                 <td class="col-md-2"><a href="/question/{{$question->id}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a href="/question/{{$question->id}}"<i class="fa fa-times" aria-hidden="true"></i></a></td> 
                                 </tr>
+                                
                                 @endif
                             @endforeach
                             </tbody>
                             </tr>
                             </tbody>
+                        <?php $loop += 1; ?>     
                         @endforeach
                         
                     </table>
@@ -232,18 +236,23 @@ $('textarea').each(function () {
 });
 
 
-$('.row .btn').on('click', function(e) {
-    e.preventDefault();
-    var $this = $(this);
-    var $collapse = ($this).closest('.collapse-group').find('.collapse');
-    console.log($collapse);
-    $collapse.collapse('toggle');
-})
-;
 
-$("btn").click(function(){
-    $collapse = $this.closest('.collapse');
-    $($collapse).toggle();
-});
+function uitklap(element){
+    var id = element.id;
+    var uitklap = element.name;
+   var lees_meer = document.getElementById(uitklap);
+   $lees_meer = lees_meer.id;
+   console.log($lees_meer);
+   if (document.getElementById($lees_meer).className === "collapse"){
+   document.getElementById($lees_meer).className = "";
+}
+else{
+    document.getElementById($lees_meer).className = "collapse";
+}
+
+
+
+}
+
 </script>
 @endsection
